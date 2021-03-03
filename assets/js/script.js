@@ -11,6 +11,12 @@ function jump() {
     }, 500);
 }
 
-var checkDead = setInterval(funciton() {
-    var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-}, 10);
+var checkDead = setInterval(function() {
+var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+var blockLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
+    block.style.animation = "none";
+    block.style.display = "none";
+    alert("You Lose!!");
+}
+}, 10)
